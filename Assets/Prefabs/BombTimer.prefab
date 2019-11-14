@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5769616829361288181}
   - component: {fileID: 5769616829361288182}
   - component: {fileID: 5769616829361288183}
-  - component: {fileID: 5769616829361288180}
+  - component: {fileID: 7319385936926643842}
+  - component: {fileID: -8271374467589491862}
   m_Layer: 5
   m_Name: RedBomb
   m_TagString: Untagged
@@ -75,22 +76,31 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!95 &5769616829361288180
-Animator:
-  serializedVersion: 3
+--- !u!111 &7319385936926643842
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5769616829361288178}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43f653460c7e18642a78948767f5aae5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7720f4e114da12343bc42c8727fb4556, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7720f4e114da12343bc42c8727fb4556, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &-8271374467589491862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769616829361288178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad1f7078537b264ead643b5019f8109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

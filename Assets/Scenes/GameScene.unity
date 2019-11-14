@@ -461,7 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GreenBombToSpawn: {fileID: -4544030615573744519, guid: 9074186b226d7c446a4ebe7e988ed7b9,
     type: 3}
-  BombTimer: {fileID: 5769616829361288178, guid: cf82b3d67afd8424d8c84494f3c4408b,
+  BombTimerToSpawn: {fileID: -8271374467589491862, guid: cf82b3d67afd8424d8c84494f3c4408b,
     type: 3}
   BlackBombToSpawn: {fileID: -1820967944510868333, guid: 442fa2010bf86464b9241cd167c5e05f,
     type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BombSpawner : MonoBehaviour
 {
     public GreenBomb GreenBombToSpawn;
-    public GameObject BombTimer;
+    public BombTimer BombTimerToSpawn;
     public BlackBomb BlackBombToSpawn;
     public float MinimumTimeToExplode;
     public float MaximumTimeToExplode;
@@ -42,11 +42,11 @@ public class BombSpawner : MonoBehaviour
 
         createdGreenBomb.StartCountdown(timeToExplode);
 
-        GameObject bombTimer = Instantiate(BombTimer,
+        BombTimer bombTimer = Instantiate(BombTimerToSpawn,
                     new Vector3(position.x, position.y, 0),
                     new Quaternion(0, 0, 0, 0),
                     FindObjectOfType<Canvas>().transform);
 
-        //bombTimer.GetComponent<Animator>();
+        createdGreenBomb.SetBombTimer(bombTimer,timeToExplode);
     }
 }

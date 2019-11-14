@@ -6,6 +6,6 @@ public class BlackBomb : Bomb
 {
     public override void OnMouseDown()
     {
-       //End Game
+        
     }
 }
