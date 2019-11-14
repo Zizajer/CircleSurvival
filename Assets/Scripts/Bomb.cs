@@ -4,17 +4,22 @@ using UnityEngine;
 
 public abstract class Bomb : MonoBehaviour
 {
-    public float timeToDisapper;
+    public string OnTimeEndedMethod;
     
-    public void StartCountdown()
+    public void StartCountdown(float timeToMethod)
     {
-        Invoke("Detonate", timeToDisapper);
+        Invoke("Vanish", timeToMethod);
     }
 
     public virtual void Detonate()
     {
         //TO-DO particle effect here 
 
+        Destroy(gameObject);
+    }
+
+    public void Vanish()
+    {
         Destroy(gameObject);
     }
 

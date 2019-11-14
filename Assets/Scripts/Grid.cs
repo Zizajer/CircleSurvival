@@ -14,5 +14,17 @@ public class Grid : MonoBehaviour
         tiles = gridSpawner.SpawnGrid(RowsCount, ColumnsCount,transform);
     }
 
+    public Tile GetFreeTile()
+    {
+        Tile randomFreeTile;
+        bool isFreeTileFounded = false;
 
+        do{
+            randomFreeTile = tiles[Random.Range(0, RowsCount), Random.Range(0, ColumnsCount)];
+            if (!randomFreeTile.isBombSetted)
+                isFreeTileFounded = true;
+        } while (!isFreeTileFounded);
+
+        return randomFreeTile;
+    }
 }

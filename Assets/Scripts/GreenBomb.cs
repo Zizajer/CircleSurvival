@@ -6,6 +6,7 @@ public class GreenBomb : Bomb
 {
     public override void OnMouseDown()
     {
-        Detonate();
+        Vanish();
+
     }
 }
