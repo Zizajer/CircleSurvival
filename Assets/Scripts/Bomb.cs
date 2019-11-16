@@ -8,13 +8,12 @@ public abstract class Bomb : MonoBehaviour
     
     public void StartCountdown(float timeToMethod)
     {
-        Invoke("Vanish", timeToMethod);
+        Invoke(OnTimeEndedMethod, timeToMethod);
     }
 
     public virtual void Detonate()
     {
-        //TO-DO particle effect here 
-
+        FindObjectOfType<GameManager>().EndGame();
         Destroy(gameObject);
     }
 

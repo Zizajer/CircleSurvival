@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public BombSpawner BombSpawner;
     public float MinimumTimeToSpawnABomb;
     public float MaximumTimeToSpawnABomb;
+    public UIManager UIManager;
+    public ScoreManager ScoreManager;
 
     private void Start()
     {
@@ -22,4 +24,11 @@ public class GameManager : MonoBehaviour
 
         Invoke("SpawnABombOnFreeTile", Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
     }
+
+    public void EndGame()
+    {
+        UIManager.ShowEndGameUIAnimations(ScoreManager.CurrentScore);
+        Time.timeScale = 0;
+    }
+    
 }

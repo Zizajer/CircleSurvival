@@ -7,17 +7,18 @@ public class ScoreManager : MonoBehaviour
 {
     public Text ScoreText;
     private int currentScore;
+    public int CurrentScore { get => currentScore; set => currentScore = value; }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentScore = 0;
+        CurrentScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentScore = (int) Time.timeSinceLevelLoad;
-        ScoreText.text = currentScore.ToString();
+        CurrentScore = (int) Time.timeSinceLevelLoad;
+        ScoreText.text = CurrentScore.ToString();
     }
 }

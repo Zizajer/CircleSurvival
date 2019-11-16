@@ -17,7 +17,6 @@ public class BombSpawner : MonoBehaviour
             SpawnBlackBomb(position);
         else
             SpawnGreenBomb(position);
-
     }
 
     //Refactor to one spawn method
