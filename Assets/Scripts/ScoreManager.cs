@@ -7,16 +7,11 @@ public class ScoreManager : MonoBehaviour
 {
     public Text ScoreText;
     private int currentScore;
-    public int CurrentScore { get => currentScore; set => currentScore = value; }
-    
-    void Start()
-    {
-        CurrentScore = 0;
-    }
+    public int CurrentScore { get => currentScore;}
     
     void Update()
     {
-        CurrentScore = (int) Time.timeSinceLevelLoad;
+        currentScore = (int) Time.timeSinceLevelLoad;
         ScoreText.text = CurrentScore.ToString();
     }
 }

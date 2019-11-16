@@ -696,7 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RowsCount: 6
   ColumnsCount: 6
-  gridSpawner: {fileID: 1492188520}
+  GridSpawner: {fileID: 1492188520}
 --- !u!114 &1492188520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc7fe4dac06b524caa5966074277c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.7
+  Offset: 0.7
   TileToSpawn: {fileID: 1804652112, guid: d7887593bdf41ac4591ce3b8a4c12d8c, type: 3}
 --- !u!1 &1768692647
 GameObject:
@@ -751,6 +751,7 @@ MonoBehaviour:
     type: 3}
   MinimumTimeToExplode: 2.4
   MaximumTimeToExplode: 4
+  BombsDestroyed: 0
 --- !u!114 &1768692649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,13 +766,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grid: {fileID: 1492188519}
   BombManager: {fileID: 1768692648}
-  MinimumTimeToSpawnABomb: 0.75
-  MaximumTimeToSpawnABomb: 2
+  MinimumTimeToSpawnABomb: 0.5
+  MaximumTimeToSpawnABomb: 1.8
   UIManager: {fileID: 584628096}
   ScoreManager: {fileID: 584628095}
-  ScoreStepDifficultyChangeValue: 5
-  MinimumTimeToSpawnBombStepDecrementationValue: 0.05
-  MaximumTimeToSpawnBombStepDecrementationValue: 0.1
+  BombDestroyedDifficultyChangeValue: 5
+  MinimumTimeToSpawnBombStepDecrementationValue: 0.012
+  MaximumTimeToSpawnBombStepDecrementationValue: 0.05
 --- !u!4 &1768692650
 Transform:
   m_ObjectHideFlags: 0

@@ -36,7 +36,8 @@ public abstract class Bomb : MonoBehaviour
 
     private void OnDestroy()
     {
-        TileOnWhichIsBomb.isBombSetted = false;
+        TileOnWhichIsBomb.IsBombSetted = false;
+        FindObjectOfType<BombManager>().BombsDestroyed += 1;
 
         if (bombTimer != null)
             Destroy(bombTimer.gameObject);

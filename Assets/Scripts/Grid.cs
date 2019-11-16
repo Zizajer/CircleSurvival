@@ -6,12 +6,12 @@ public class Grid : MonoBehaviour
 {
     public int RowsCount;
     public int ColumnsCount;
-    public Tile[,] tiles;
-    public GridSpawner gridSpawner;
+    public Tile[,] Tiles;
+    public GridSpawner GridSpawner;
 
     private void Start()
     {
-        tiles = gridSpawner.SpawnGrid(RowsCount, ColumnsCount,transform);
+        Tiles = GridSpawner.SpawnGrid(RowsCount, ColumnsCount,transform);
     }
 
     public Tile GetFreeTile()
@@ -20,8 +20,8 @@ public class Grid : MonoBehaviour
         bool isFreeTileFounded = false;
 
         do{
-            randomFreeTile = tiles[Random.Range(0, RowsCount), Random.Range(0, ColumnsCount)];
-            if (!randomFreeTile.isBombSetted)
+            randomFreeTile = Tiles[Random.Range(0, RowsCount), Random.Range(0, ColumnsCount)];
+            if (!randomFreeTile.IsBombSetted)
                 isFreeTileFounded = true;
         } while (!isFreeTileFounded);
 

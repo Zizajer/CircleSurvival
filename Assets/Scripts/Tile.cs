@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public bool isBombSetted;
+    public bool IsBombSetted;
     
     void Start()
     {
-        isBombSetted = false;
+        IsBombSetted = false;
     }
 }

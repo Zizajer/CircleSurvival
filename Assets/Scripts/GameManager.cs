@@ -11,26 +11,30 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager;
     public ScoreManager ScoreManager;
     private bool isGameEnded;
-    public int ScoreStepDifficultyChangeValue;
+    public int BombDestroyedDifficultyChangeValue;
     public float MinimumTimeToSpawnBombStepDecrementationValue;
     public float MaximumTimeToSpawnBombStepDecrementationValue;
-    private int ScoreDifficultyChangeValue;
+    private int BombsDifficultyChangeValue;
 
     private void Start()
     {
         isGameEnded = false;
-        ScoreDifficultyChangeValue = ScoreStepDifficultyChangeValue;
+        BombsDifficultyChangeValue = BombDestroyedDifficultyChangeValue;
         Invoke("SpawnABombOnFreeTile",
             Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
     }
 
     private void Update()
     {
-        if (ScoreManager.CurrentScore > ScoreDifficultyChangeValue)
+        if (BombManager.BombsDestroyed > BombsDifficultyChangeValue)
         {
-            ScoreDifficultyChangeValue += ScoreStepDifficultyChangeValue;
-            MinimumTimeToSpawnABomb -= MinimumTimeToSpawnBombStepDecrementationValue;
-            MaximumTimeToSpawnABomb -= MaximumTimeToSpawnBombStepDecrementationValue;
+            BombsDifficultyChangeValue += BombDestroyedDifficultyChangeValue;
+
+            if(MinimumTimeToSpawnABomb > 0.15f)
+                MinimumTimeToSpawnABomb -= MinimumTimeToSpawnBombStepDecrementationValue;
+
+            if (MaximumTimeToSpawnABomb > 0.15f)
+                MaximumTimeToSpawnABomb -= MaximumTimeToSpawnBombStepDecrementationValue;
         }
     }
 
@@ -40,7 +44,7 @@ public class GameManager : MonoBehaviour
         {
             Tile freeTile = Grid.GetFreeTile();
             BombManager.SpawnBomb(freeTile);
-            freeTile.isBombSetted = true;
+            freeTile.IsBombSetted = true;
 
             Invoke("SpawnABombOnFreeTile", 
                 Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));

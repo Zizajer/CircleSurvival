@@ -10,6 +10,7 @@ public class BombManager : MonoBehaviour
     public GameObject ExplosionEffect;
     public float MinimumTimeToExplode;
     public float MaximumTimeToExplode;
+    public int BombsDestroyed = 0;
 
     public void SpawnBomb(Tile freeTile)
     {
@@ -47,7 +48,9 @@ public class BombManager : MonoBehaviour
             GameObject createdExplosionEffect = Instantiate(ExplosionEffect, 
                     bomb.transform.position, 
                     bomb.transform.rotation);
+
             Destroy(bomb.gameObject);
+
             Destroy(createdExplosionEffect, 
                     createdExplosionEffect.GetComponent<ParticleSystem>().main.duration);
         }
