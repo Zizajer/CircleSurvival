@@ -11,12 +11,27 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager;
     public ScoreManager ScoreManager;
     private bool isGameEnded;
+    public int ScoreStepDifficultyChangeValue;
+    public float MinimumTimeToSpawnBombStepDecrementationValue;
+    public float MaximumTimeToSpawnBombStepDecrementationValue;
+    private int ScoreDifficultyChangeValue;
 
     private void Start()
     {
         isGameEnded = false;
+        ScoreDifficultyChangeValue = ScoreStepDifficultyChangeValue;
         Invoke("SpawnABombOnFreeTile",
             Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
+    }
+
+    private void Update()
+    {
+        if (ScoreManager.CurrentScore > ScoreDifficultyChangeValue)
+        {
+            ScoreDifficultyChangeValue += ScoreStepDifficultyChangeValue;
+            MinimumTimeToSpawnABomb -= MinimumTimeToSpawnBombStepDecrementationValue;
+            MaximumTimeToSpawnABomb -= MaximumTimeToSpawnBombStepDecrementationValue;
+        }
     }
 
     public void SpawnABombOnFreeTile()

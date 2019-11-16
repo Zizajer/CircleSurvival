@@ -765,10 +765,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grid: {fileID: 1492188519}
   BombManager: {fileID: 1768692648}
-  MinimumTimeToSpawnABomb: 1
-  MaximumTimeToSpawnABomb: 3
+  MinimumTimeToSpawnABomb: 0.75
+  MaximumTimeToSpawnABomb: 2
   UIManager: {fileID: 584628096}
   ScoreManager: {fileID: 584628095}
+  ScoreStepDifficultyChangeValue: 5
+  MinimumTimeToSpawnBombStepDecrementationValue: 0.05
+  MaximumTimeToSpawnBombStepDecrementationValue: 0.1
 --- !u!4 &1768692650
 Transform:
   m_ObjectHideFlags: 0
