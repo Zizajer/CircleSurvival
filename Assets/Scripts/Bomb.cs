@@ -6,6 +6,7 @@ public abstract class Bomb : MonoBehaviour
 {
     public bool IsDetonable;
     public Tile TileOnWhichIsBomb;
+    private BombTimer bombTimer;
 
     public void StartCountdown(float timeToMethod)
     {
@@ -26,5 +27,19 @@ public abstract class Bomb : MonoBehaviour
     }
 
     public abstract void OnMouseDown();
+
+    public void SetBombTimer(BombTimer bT, float timeToExplode)
+    {
+        bombTimer = bT;
+        bombTimer.SetTimer(timeToExplode);
+    }
+
+    private void OnDestroy()
+    {
+        TileOnWhichIsBomb.isBombSetted = false;
+
+        if (bombTimer != null)
+            Destroy(bombTimer.gameObject);
+    }
 
 }

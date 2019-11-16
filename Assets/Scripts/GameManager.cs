@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameEnded = false;
-        Invoke("SpawnABombOnFreeTile", Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
+        Invoke("SpawnABombOnFreeTile",
+            Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
     }
 
     public void SpawnABombOnFreeTile()
@@ -26,7 +27,8 @@ public class GameManager : MonoBehaviour
             BombManager.SpawnBomb(freeTile);
             freeTile.isBombSetted = true;
 
-            Invoke("SpawnABombOnFreeTile", Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
+            Invoke("SpawnABombOnFreeTile", 
+                Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
         }
     }
 

@@ -8,9 +8,4 @@ public class BlackBomb : Bomb
     {
         FindObjectOfType<GameManager>().EndGame();
     }
-
-    private void OnDestroy()
-    {
-        TileOnWhichIsBomb.isBombSetted = false;
-    }
 }

@@ -24,39 +24,56 @@ public class BombManager : MonoBehaviour
 
     private void SpawnBlackBomb(Tile freeTile) 
     {
-        BlackBomb createdBlackBomb = Instantiate(BlackBombToSpawn,
-                freeTile.transform.position,
-                freeTile.transform.rotation);
+        float timeToExplode = Random.Range(MinimumTimeToExplode, MaximumTimeToExplode);
 
-        createdBlackBomb.TileOnWhichIsBomb = freeTile;
-        createdBlackBomb.StartCountdown(Random.Range(MinimumTimeToExplode, MaximumTimeToExplode));
+        Bomb spawnedBlackBomb = SpawnAndInitializeBomb(freeTile, BlackBombToSpawn, timeToExplode);
+
+        SpawnAndActivateBombTimer(spawnedBlackBomb, timeToExplode);
     }
 
     private void SpawnGreenBomb(Tile freeTile)
     {
         float timeToExplode = Random.Range(MinimumTimeToExplode, MaximumTimeToExplode);
 
-        GreenBomb createdGreenBomb = Instantiate(GreenBombToSpawn,
-                freeTile.transform.position,
-                freeTile.transform.rotation);
+        Bomb spawnedGreenBomb = SpawnAndInitializeBomb(freeTile, GreenBombToSpawn, timeToExplode);
 
-        createdGreenBomb.TileOnWhichIsBomb = freeTile;
-        createdGreenBomb.StartCountdown(timeToExplode);
-
-        BombTimer bombTimer = Instantiate(BombTimerToSpawn,
-                freeTile.transform.position,
-                freeTile.transform.rotation,
-                FindObjectOfType<Canvas>().transform);
-
-        createdGreenBomb.SetBombTimer(bombTimer,timeToExplode);
+        SpawnAndActivateBombTimer(spawnedGreenBomb, timeToExplode);
     }
 
     public void ExplodeAllActiveBombs()
     {
         foreach (Bomb bomb in FindObjectsOfType<Bomb>())
         {
-            Instantiate(ExplosionEffect, bomb.transform.position, bomb.transform.rotation);
+            GameObject createdExplosionEffect = Instantiate(ExplosionEffect, 
+                    bomb.transform.position, 
+                    bomb.transform.rotation);
             Destroy(bomb.gameObject);
+            Destroy(createdExplosionEffect, 
+                    createdExplosionEffect.GetComponent<ParticleSystem>().main.duration);
         }
+    }
+
+    private Bomb SpawnAndInitializeBomb(Tile freeTile, Bomb bombToSpawn,float timeToExplode)
+    {
+        Bomb createdGreenBomb = Instantiate(bombToSpawn,
+               freeTile.transform.position,
+               freeTile.transform.rotation);
+
+        createdGreenBomb.TileOnWhichIsBomb = freeTile;
+        createdGreenBomb.StartCountdown(timeToExplode);
+
+        return createdGreenBomb;
+    }
+
+    private BombTimer SpawnAndActivateBombTimer(Bomb bomb,float timeToExplode)
+    {
+        BombTimer bombTimer = Instantiate(BombTimerToSpawn,
+                bomb.transform.position,
+                bomb.transform.rotation,
+                FindObjectOfType<Canvas>().transform);
+
+        bomb.SetBombTimer(bombTimer, timeToExplode);
+
+        return bombTimer;
     }
 }
