@@ -93,7 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199f85a3bf94070418f7cb7a36f9bf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnTimeEndedMethod: Detonate
+  IsDetonable: 1
+  ExplosionEffect: {fileID: 2653399646595559300, guid: eb0ccbaaa0f13384d8d5e8d36300c050,
+    type: 3}
 --- !u!61 &-7241279735130291069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -104,7 +106,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

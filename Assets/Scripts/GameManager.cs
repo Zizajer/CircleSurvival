@@ -5,30 +5,37 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Grid Grid;
-    public BombSpawner BombSpawner;
+    public BombManager BombManager;
     public float MinimumTimeToSpawnABomb;
     public float MaximumTimeToSpawnABomb;
     public UIManager UIManager;
     public ScoreManager ScoreManager;
+    private bool isGameEnded;
 
     private void Start()
     {
+        isGameEnded = false;
         Invoke("SpawnABombOnFreeTile", Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
     }
 
     public void SpawnABombOnFreeTile()
     {
-        Tile freeTile = Grid.GetFreeTile();
-        BombSpawner.SpawnBomb(freeTile.transform.position);
-        freeTile.isBombSetted = true;
+        if (!isGameEnded)
+        {
+            Tile freeTile = Grid.GetFreeTile();
+            BombManager.SpawnBomb(freeTile);
+            freeTile.isBombSetted = true;
 
-        Invoke("SpawnABombOnFreeTile", Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
+            Invoke("SpawnABombOnFreeTile", Random.Range(MinimumTimeToSpawnABomb, MaximumTimeToSpawnABomb));
+        }
     }
 
     public void EndGame()
     {
         UIManager.ShowEndGameUIAnimations(ScoreManager.CurrentScore);
-        Time.timeScale = 0;
+        BombManager.ExplodeAllActiveBombs();
+        isGameEnded = true;
+        ScoreManager.enabled = false;
     }
     
 }

@@ -747,6 +747,8 @@ MonoBehaviour:
     type: 3}
   BlackBombToSpawn: {fileID: -1820967944510868333, guid: 442fa2010bf86464b9241cd167c5e05f,
     type: 3}
+  ExplosionEffect: {fileID: 2653399646595559300, guid: eb0ccbaaa0f13384d8d5e8d36300c050,
+    type: 3}
   MinimumTimeToExplode: 2.4
   MaximumTimeToExplode: 4
 --- !u!114 &1768692649
@@ -762,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grid: {fileID: 1492188519}
-  BombSpawner: {fileID: 1768692648}
+  BombManager: {fileID: 1768692648}
   MinimumTimeToSpawnABomb: 1
   MaximumTimeToSpawnABomb: 3
   UIManager: {fileID: 584628096}

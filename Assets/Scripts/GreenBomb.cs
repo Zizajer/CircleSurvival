@@ -8,13 +8,19 @@ public class GreenBomb : Bomb
 
     public override void OnMouseDown()
     {
+        TileOnWhichIsBomb.isBombSetted = false;
         Destroy(gameObject);
-        Destroy(bombTimer.gameObject);
     }
 
     public void SetBombTimer(BombTimer bT,float timeToExplode)
     {
         bombTimer = bT;
         bombTimer.SetTimer(timeToExplode);
+    }
+
+    private void OnDestroy()
+    {
+        if(bombTimer != null)
+            Destroy(bombTimer.gameObject);
     }
 }
